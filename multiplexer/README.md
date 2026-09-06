@@ -3,6 +3,7 @@
 
 Рассмотрим схему мультиплексора 2 в 1
 
+
 <div align="center">
   <img src="https://github.com/user-attachments/assets/83f67d86-49b6-48fd-a229-a442b262c6de" width="350" alt="Мультиплексор 2 в 1">
 </div>
