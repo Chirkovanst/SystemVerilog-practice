@@ -22,3 +22,7 @@
 
 $$ OUT = (\overline{SEL} \cdot IN0) + (SEL \cdot IN1) $$
 
+<div align="center">
+  <img width="652" height="252" alt="MUX_2_1_ventili" src="https://github.com/user-attachments/assets/467ea3a3-94b2-405f-ad1c-7fecf822689a" />
+</div>
+
