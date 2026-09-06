@@ -42,17 +42,49 @@ module multiplexer_2_1_ventili (
     output logic OUT
 );
 
-assign OUT = (IN1 & SEL) | (IN0 & ~SEL);
+    assign OUT = (IN1 & SEL) | (IN0 & ~SEL);
+
 endmodule
 ```
 
 ### Описание мультиплексора через if-else
 
-Следующие два способа описания наиболее часто применимы. Поведенчески описывая мультиплексор при помощи if-else мы буквально говорим: "Если SEL = 0, используем вход IN0"
+Следующие два способа описания наиболее часто применимы. Поведенчески описывая мультиплексор при помощи if-else мы буквально говорим: "Если SEL = 0, отправляем данные со входа, на выход IN0"
+
+```systemverilog
+if (SEL) OUT = IN1;
+```
 
 <div align="center">
   <img width="259" height="259" alt="MUX_2_1_IN0" src="https://github.com/user-attachments/assets/ec41ff26-533d-42cb-aae5-cf6c722610bb" />
 </div>
+
+"Если же SEL = 1, отправляем данные со входа, на выход IN1"
+
+```systemverilog
+else     OUT = IN0;
+```
+
+<div align="center">
+  <img width="259" height="259" alt="MUX_2_1_IN1" src="https://github.com/user-attachments/assets/8660b45d-6b91-489c-b5ce-4cb16bbc465e" />
+</div>
+
+```systemverilog
+module multiplexer_2_1_if_else (
+    input  logic IN0,
+    input  logic IN1,
+    input  logic SEL,
+
+    output logic OUT
+);
+
+    always_comb begin
+        if (SEL) OUT = IN1;
+        else     OUT = IN0;
+    end
+
+endmodule
+```
 
 
 
