@@ -109,3 +109,26 @@ module multiplexer_2_1_case (
 endmodule
 ```
 
+### Описание мультиплексора через тернарный оператор
+
+Один из наиболее часто используемых способов описания мультиплексора. Он чем-то напоминает конструкцию if-else описанную в одну строчку
+
+```systemverilog
+условие ? выражение_если_истина : выражение_если_ложь;
+```
+
+Здесь рассуждаем аналогично, анализируя сигнал SEL. Если SEL = 1 передаём на выход вход IN1, если SEL = 0 передаём на выход вход IN0:
+
+```systemverilog
+module multiplexer_2_1_ternary_operator (
+    input  logic IN0,
+    input  logic IN1,
+    input  logic SEL,
+
+    output logic OUT
+);
+
+    assign OUT = SEL ? IN1 : IN0;
+
+endmodule
+```
