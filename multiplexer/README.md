@@ -32,6 +32,7 @@ $$ OUT = (\overline{SEL} \cdot IN0) + (SEL \cdot IN1) $$
 
 Наиболее примитивный (и реже используемый) способ реализации схемы мультиплексора – структурное её описание на вентилях. Выглядеть оно будет следующим образом:
 
+```systemverilog
 module multiplexer_2_1_ventili (
     input  logic IN0,
     input  logic IN1,
@@ -39,6 +40,7 @@ module multiplexer_2_1_ventili (
 
     output logic OUT
 );
+```
 
 assign OUT = (IN1 & SEL) | (IN0 & ~SEL);
 endmodule
