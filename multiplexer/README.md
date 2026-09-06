@@ -7,7 +7,5 @@
   <img src="https://github.com/user-attachments/assets/83f67d86-49b6-48fd-a229-a442b262c6de" width="350" alt="Мультиплексор 2 в 1">
 </div>
 
-<img width="259" height="259" alt="MUX_2_1" src="https://github.com/user-attachments/assets/83f67d86-49b6-48fd-a229-a442b262c6de" />
-
 
 
