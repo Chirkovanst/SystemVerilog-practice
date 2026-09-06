@@ -40,10 +40,10 @@ module multiplexer_2_1_ventili (
 
     output logic OUT
 );
-```
 
 assign OUT = (IN1 & SEL) | (IN0 & ~SEL);
 endmodule
+```
 
 
 
