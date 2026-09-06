@@ -3,5 +3,5 @@
 
 Рассмотрим пример мультиплексора 2 в 1
 
-<img width="453" height="363" alt="MUX_2_1" src="https://github.com/user-attachments/assets/5f6e2b89-e0ab-40ca-8df8-6917d466c1fa" />
+<img width="151" height="121" alt="MUX_2_1" src="https://github.com/user-attachments/assets/5f6e2b89-e0ab-40ca-8df8-6917d466c1fa" />
 
