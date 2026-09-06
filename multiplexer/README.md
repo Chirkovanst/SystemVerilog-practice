@@ -5,3 +5,8 @@
 
 <img width="151" height="121" alt="MUX_2_1" src="https://github.com/user-attachments/assets/5f6e2b89-e0ab-40ca-8df8-6917d466c1fa" />
 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/5f6e2b89-e0ab-40ca-8df8-6917d466c1fa" width="350" alt="Мультиплексор 2 в 1">
+</div>
+
+
