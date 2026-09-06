@@ -86,5 +86,26 @@ module multiplexer_2_1_if_else (
 endmodule
 ```
 
+### Описание мультиплексора через case
 
+Следующий способ описания данного комбинационного блока чем-то похож на предыдущий. Описывая case мы по сути так же говорим: "Если SEL = 0, на выход передаём вход IN0, если же SEL = 1, на выход передаём IN1"
+
+```systemverilog
+module multiplexer_2_1_case (
+    input  logic IN0,
+    input  logic IN1,
+    input  logic SEL,
+
+    output logic OUT
+);
+
+    always_comb begin
+        case(SEL)
+        0: OUT = IN0;
+        1: OUT = IN1;
+        endcase
+    end
+
+endmodule
+```
 
