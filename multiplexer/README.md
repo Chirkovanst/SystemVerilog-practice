@@ -51,7 +51,8 @@ endmodule
 Следующие два способа описания наиболее часто применимы. Поведенчески описывая мультиплексор при помощи if-else мы буквально говорим: "Если SEL = 0, используем вход IN0"
 
 <div align="center">
-  <img width="1116" height="1116" alt="image" src="https://github.com/user-attachments/assets/927b2980-0fbc-440b-a08e-3504868adae9" />
+  <img width="259" height="259" alt="MUX_2_1_IN0" src="https://github.com/user-attachments/assets/ec41ff26-533d-42cb-aae5-cf6c722610bb" />
 </div>
+
 
 
