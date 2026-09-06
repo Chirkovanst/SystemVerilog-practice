@@ -26,3 +26,22 @@ $$ OUT = (\overline{SEL} \cdot IN0) + (SEL \cdot IN1) $$
   <img width="652" height="252" alt="MUX_2_1_ventili" src="https://github.com/user-attachments/assets/467ea3a3-94b2-405f-ad1c-7fecf822689a" />
 </div>
 
+А теперь, опираясь не вышеизложенную теорию, опишем данную схему на System Verilog. Есть несколько различных способов, которые позволят это сделать.
+
+### Описание схемы на вентилях
+
+Наиболее примитивный (и реже используемый) способ реализации схемы мультиплексора – структурное её описание на вентилях. Выглядеть оно будет следующим образом:
+
+module multiplexer_2_1_ventili (
+    input  logic IN0,
+    input  logic IN1,
+    input  logic SEL,
+
+    output logic OUT
+);
+
+assign OUT = (IN1 & SEL) | (IN0 & ~SEL);
+endmodule
+
+
+
