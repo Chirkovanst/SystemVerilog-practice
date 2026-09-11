@@ -131,22 +131,22 @@ endmodule
 
 $$
 \begin{aligned}
-Y_0 &= \overline{A_3} \cdot \overline{A_2} \cdot \overline{A_1} \cdot \overline{A_0} \\
-Y_1 &= \overline{A_3} \cdot \overline{A_2} \cdot \overline{A_1} \cdot A_0 \\
-Y_2 &= \overline{A_3} \cdot \overline{A_2} \cdot A_1 \cdot \overline{A_0} \\
-Y_3 &= \overline{A_3} \cdot \overline{A_2} \cdot A_1 \cdot A_0 \\
-Y_4 &= \overline{A_3} \cdot A_2 \cdot \overline{A_1} \cdot \overline{A_0} \\
-Y_5 &= \overline{A_3} \cdot A_2 \cdot \overline{A_1} \cdot A_0 \\
-Y_6 &= \overline{A_3} \cdot A_2 \cdot A_1 \cdot \overline{A_0} \\
-Y_7 &= \overline{A_3} \cdot A_2 \cdot A_1 \cdot A_0 \\
-Y_8 &= A_3 \cdot \overline{A_2} \cdot \overline{A_1} \cdot \overline{A_0} \\
-Y_9 &= A_3 \cdot \overline{A_2} \cdot \overline{A_1} \cdot A_0 \\
-Y_{10} &= A_3 \cdot \overline{A_2} \cdot A_1 \cdot \overline{A_0} \\
-Y_{11} &= A_3 \cdot \overline{A_2} \cdot A_1 \cdot A_0 \\
-Y_{12} &= A_3 \cdot A_2 \cdot \overline{A_1} \cdot \overline{A_0} \\
-Y_{13} &= A_3 \cdot A_2 \cdot \overline{A_1} \cdot A_0 \\
-Y_{14} &= A_3 \cdot A_2 \cdot A_1 \cdot \overline{A_0} \\
-Y_{15} &= A_3 \cdot A_2 \cdot A_1 \cdot A_0
+Y_0 &= \overline{A_3} \cdot \overline{A_2} \cdot \overline{A_1} \cdot \overline{A_0} && \text{--- код } 4'b0000 \ (0) \\
+Y_1 &= \overline{A_3} \cdot \overline{A_2} \cdot \overline{A_1} \cdot A_0 && \text{--- код } 4'b0001 \ (1) \\
+Y_2 &= \overline{A_3} \cdot \overline{A_2} \cdot A_1 \cdot \overline{A_0} && \text{--- код } 4'b0010 \ (2) \\
+Y_3 &= \overline{A_3} \cdot \overline{A_2} \cdot A_1 \cdot A_0 && \text{--- код } 4'b0011 \ (3) \\
+Y_4 &= \overline{A_3} \cdot A_2 \cdot \overline{A_1} \cdot \overline{A_0} && \text{--- код } 4'b0100 \ (4) \\
+Y_5 &= \overline{A_3} \cdot A_2 \cdot \overline{A_1} \cdot A_0 && \text{--- код } 4'b0101 \ (5) \\
+Y_6 &= \overline{A_3} \cdot A_2 \cdot A_1 \cdot \overline{A_0} && \text{--- код } 4'b0110 \ (6) \\
+Y_7 &= \overline{A_3} \cdot A_2 \cdot A_1 \cdot A_0 && \text{--- код } 4'b0111 \ (7) \\
+Y_8 &= A_3 \cdot \overline{A_2} \cdot \overline{A_1} \cdot \overline{A_0} && \text{--- код } 4'b1000 \ (8) \\
+Y_9 &= A_3 \cdot \overline{A_2} \cdot \overline{A_1} \cdot A_0 && \text{--- код } 4'b1001 \ (9) \\
+Y_{10} &= A_3 \cdot \overline{A_2} \cdot A_1 \cdot \overline{A_0} && \text{--- код } 4'b1010 \ (10) \\
+Y_{11} &= A_3 \cdot \overline{A_2} \cdot A_1 \cdot A_0 && \text{--- код } 4'b1011 \ (11) \\
+Y_{12} &= A_3 \cdot A_2 \cdot \overline{A_1} \cdot \overline{A_0} && \text{--- код } 4'b1100 \ (12) \\
+Y_{13} &= A_3 \cdot A_2 \cdot \overline{A_1} \cdot A_0 && \text{--- код } 4'b1101 \ (13) \\
+Y_{14} &= A_3 \cdot A_2 \cdot A_1 \cdot \overline{A_0} && \text{--- код } 4'b1110 \ (14) \\
+Y_{15} &= A_3 \cdot A_2 \cdot A_1 \cdot A_0 && \text{--- код } 4'b1111 \ (15)
 \end{aligned}
 $$
 
