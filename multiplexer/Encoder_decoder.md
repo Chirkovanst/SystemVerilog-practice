@@ -12,7 +12,7 @@
 
 &ensp;
 
-На ней 16 свитчей, представим, что нам нужно, чтобы информация о том, какой конкретно свитч сейчас в активном состоянии передавалась на семисегментный индикатор. Например, в активном состоянии восьмой свитч и на семисегментном индикаторе мы видим 8 (8 в шестнадцатеричной системе счисления).
+На ней 16 свитчей, представим, что нам нужно, чтобы информация о том, какой конкретно свитч сейчас в активном состоянии передавалась на семисегментный индикатор. Например, в активном состоянии шестой свитч и на семисегментном индикаторе мы видим 6 (6 в шестнадцатеричной системе счисления).
 
 На System Verilog данная концепция будет выглядеть следующим образом:
 
@@ -46,6 +46,126 @@ module encoder (
     end
 endmodule
 ```
+
+<div style="background-color: #ddf4ff; border: 1px solid #a3daff; padding: 20px; border-radius: 6px; width: 300px; min-height: 150px;">
+  **Унарное кодирование** 
+  Вот, казалось бы, нулевой свитч, на плате он sw[0], но мы его почему-то обозначаем 16'b0000_0000_0000_0001 (единицей)... Почему так? 
+
+  One-Hot Encoding (Унарное кодирование) — это способ представления чисел или состояний, при котором в любой момент времени только один бит равен единице, а все остальные равны нулю.
+
+  У нас есть 16 различных чисел, которые нужно закодировать:
+
+  <table>
+  <thead>
+    <tr>
+      <th align="center">Число</th>
+      <th align="center">Двоичное (Binary)</th>
+      <th align="center">One-Hot (16 бит)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><b>0</b></td>
+      <td align="center"><code>0000</code></td>
+      <td align="center"><code>0000000000000001</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>1</b></td>
+      <td align="center"><code>0001</code></td>
+      <td align="center"><code>0000000000000010</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>2</b></td>
+      <td align="center"><code>0010</code></td>
+      <td align="center"><code>0000000000000100</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>3</b></td>
+      <td align="center"><code>0011</code></td>
+      <td align="center"><code>0000000000001000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>4</b></td>
+      <td align="center"><code>0100</code></td>
+      <td align="center"><code>0000000000010000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>5</b></td>
+      <td align="center"><code>0101</code></td>
+      <td align="center"><code>0000000000100000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>6</b></td>
+      <td align="center"><code>0110</code></td>
+      <td align="center"><code>0000000001000000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>7</b></td>
+      <td align="center"><code>0111</code></td>
+      <td align="center"><code>0000000010000000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>8</b></td>
+      <td align="center"><code>1000</code></td>
+      <td align="center"><code>0000000100000000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>9</b></td>
+      <td align="center"><code>1001</code></td>
+      <td align="center"><code>0000001000000000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>10</b></td>
+      <td align="center"><code>1010</code></td>
+      <td align="center"><code>0000010000000000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>11</b></td>
+      <td align="center"><code>1011</code></td>
+      <td align="center"><code>0000100000000000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>12</b></td>
+      <td align="center"><code>1100</code></td>
+      <td align="center"><code>0001000000000000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>13</b></td>
+      <td align="center"><code>1101</code></td>
+      <td align="center"><code>0010000000000000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>14</b></td>
+      <td align="center"><code>1110</code></td>
+      <td align="center"><code>0100000000000000</code></td>
+    </tr>
+    <tr>
+      <td align="center"><b>15</b></td>
+      <td align="center"><code>1111</code></td>
+      <td align="center"><code>1000000000000000</code></td>
+    </tr>
+  </tbody>
+</table>
+
+Да, при программировании на C/C++, python подобный способ кодирования не применяется практически никогда, но, если мы работаем с ПЛИС, то его применение очень даже актуально. В ПЛИС, внутри платы, свитчи выглядят следующим образом:
+
+<div align="center">
+  <img width="440" height="305" alt="image" src="https://github.com/user-attachments/assets/b2f5e66f-b0b9-44c2-825e-c06f8f400ab8" />
+</div>
+
+А теперь окунёмся чуть-чуть в электронику)
+На всю схему подаётся сигнал питания VCC3V3. Для примера возьмём SW0, он подтянут к земле через резистор R18. Соответственно, когда 0 бит установлен в 0 
+переключатель разомнут, цепь не замкнута и резистор R18 стягивает сигнал к земле, на выходе SW0 логический ноль. Когда мы замыкаем переключатель, ток от VCC3V3 идёт напрямую, и на выходе SW0 появляется логическая 1.
+
+На System Verilog мы эту ситуацию описываем следующим образом:
+
+```systemverilog
+16'b0000_0000_0000_0001: switch_number = 4'd0;
+```
+
+Это значит, с SW[0] пришла 1, все остальные свитчи в 0.
+
+</div>
 
 Кроме того, шифратор так же, как и мультиплексор можно описать при помощи логического выражения. Шифратор 16 в 4 преобразует активный сигнал на одном из 16 входов в 4-разрядный двоичный код на выходе. Соответственно, при составлении логического выражения стоит руководствоваться именно этой логикой. Рассматривая все 16 значений (от 0 до 15) в двоичном виде, мы получим:
 
