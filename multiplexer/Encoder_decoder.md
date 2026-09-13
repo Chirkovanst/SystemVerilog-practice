@@ -316,4 +316,3 @@ module decoder(
 endmodule
 ```
 
-
