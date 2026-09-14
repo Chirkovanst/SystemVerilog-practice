@@ -114,7 +114,7 @@ endmodule
 
 Тогда S будет равно:
 
-$$S = \overline{A}\overline{B}C_{in} + \overline{A}B\overline{C}_{in} + A\overline{B}\overline{C}_{in} + ABC_{in}$$
+$$S = \overline{A}\overline{B}C_{in} \mid \overline{A}B\overline{C}_{in} \mid A\overline{B}\overline{C}_{in} \mid ABC_{in}$$
 
 Применив чудеса булевой алгебры приходим к вот такому вот выражению:
 
