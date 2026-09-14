@@ -135,6 +135,10 @@ $$C_{out} = \overline{A}BC_{in} \mid A\overline{B}C_{in} \mid AB\overline{C}_{in
 
 $$C_{out} = AB \mid AC_{in} \mid BC_{in}$$
 
+>[!NOTE]
+>  Задание:
+>  Опишите на System Verilog полный сумматор
+
 
 
 
