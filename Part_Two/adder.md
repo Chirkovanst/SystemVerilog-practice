@@ -32,7 +32,7 @@
 Ранее мы поняли, что при сложении двух чисел может возникнуть переход из одного разряда в другой. Тогда таблица истинности полусумматора будет выглядеть следующим образом:
 
 <p align="center">
-  <img width="875" height="609" alt="Gemini_Generated_Image_vv3tefvv3tefvv3t" src="https://github.com/user-attachments/assets/51aa182d-5da4-4dc6-b428-e41449f2a9a0" />
+  <img width="291" height="203" alt="Gemini_Generated_Image_vv3tefvv3tefvv3t" src="https://github.com/user-attachments/assets/51aa182d-5da4-4dc6-b428-e41449f2a9a0" />
 </p>
 
 
