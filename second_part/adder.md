@@ -139,6 +139,20 @@ $$C_{out} = AB \mid AC_{in} \mid BC_{in}$$
 >  Задание:
 >  Опишите на System Verilog полный сумматор
 
+Шапка модуля:
+
+```systemverilog
+module full_adder(
+    input  logic A,
+    input  logic B,
+    input  logic Cin,
+
+    output logic S,
+    output logic Cout
+);
+
+endmodule
+```
 
 
 
