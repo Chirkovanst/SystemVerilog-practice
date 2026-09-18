@@ -7,10 +7,11 @@
 $$
 \Large
 \begin{aligned}
-\mathbf{25} &= \color{#4285F4}{\mathtt{0010}}\color{#666666}{\text{_}}\color{#EA4335}{\mathtt{0101}} \\\\[10pt]
-\mathbf{36} &= \color{#34A853}{\mathtt{0011}}\color{#666666}{\text{_}}\color{#FBBC05}{\mathtt{0110}}
+\mathbf{25} &= \color{#4285F4}{\mathtt{0010}}\color{#666666}{\string_}\color{#EA4335}{\mathtt{0101}} \\\\[10pt]
+\mathbf{36} &= \color{#34A853}{\mathtt{0011}}\color{#666666}{\string_}\color{#FBBC05}{\mathtt{0110}}
 \end{aligned}
 $$
+
 
 
 Далее нам нужно сложить цифры 5 и 6 в двоичной системе счисления:
