@@ -7,7 +7,7 @@
 $$
 \Large
 \begin{aligned}
-\mathbf{25} &= \color{#4285F4}{0010}_{\,2} \ \color{#EA4335}{0101}_{\,5} \\\\[10pt]
+\mathbf{25} &= \color{#4285F4}{0010}_ \ \color{#EA4335}{0101} \\\\[10pt]
 \mathbf{36} &= \color{#34A853}{0011}_{\,3} \ \color{#FBBC05}{0110}_{\,6}
 \end{aligned}
 $$
