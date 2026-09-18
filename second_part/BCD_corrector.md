@@ -7,10 +7,11 @@
 $$
 \Large
 \begin{aligned}
-\mathbf{25} &= \color{#4285F4}{\mathtt{0010}}\color{#666666}{\text{\textunderscore}}\color{#EA4335}{\mathtt{0101}} \\\\[10pt]
-\mathbf{36} &= \color{#34A853}{\mathtt{0011}}\color{#666666}{\text{\textunderscore}}\color{#FBBC05}{\mathtt{0110}}
+\mathbf{25} &= \color{#4285F4}{\mathtt{0010}}\color{#666666}{\lower{0.4em}{-}}\color{#EA4335}{\mathtt{0101}} \\\\[10pt]
+\mathbf{36} &= \color{#34A853}{\mathtt{0011}}\color{#666666}{\lower{0.4em}{-}}\color{#FBBC05}{\mathtt{0110}}
 \end{aligned}
 $$
+
 
 
 
