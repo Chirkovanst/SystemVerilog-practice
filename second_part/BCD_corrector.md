@@ -7,8 +7,8 @@
 $$
 \Large
 \begin{aligned}
-\mathbf{25} &= \color{#00ffcc}{\mathtt{0010}}\color{#666666}{\lower{0.4em}{-}}\color{#00ffcc}{\mathtt{0101}} \\\\[10pt]
-\mathbf{36} &= \color{#00ffcc}{\mathtt{0011}}\color{#666666}{\lower{0.4em}{-}}\color{#00ffcc}{\mathtt{0110}}
+\mathbf{25} &= \color{#00ffcc}{\mathtt{0010}}\color{#003344}{\lower{0.4em}{-}}\color{#00ffcc}{\mathtt{0101}} \\\\[10pt]
+\mathbf{36} &= \color{#00ffcc}{\mathtt{0011}}\color{#003344}{\lower{0.4em}{-}}\color{#00ffcc}{\mathtt{0110}}
 \end{aligned}
 $$
 
