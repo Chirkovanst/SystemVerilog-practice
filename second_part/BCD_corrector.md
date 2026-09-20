@@ -71,8 +71,57 @@ $$
   <img width="431" height="160" alt="image" src="https://github.com/user-attachments/assets/dfb57302-93a2-4e7b-9b89-1ee32facc0c1" />
 </div>
 
-Вот теперь можно описать данный блок на System Verilog.
+Вот теперь, когда мы поняли, что конкретно мы ожидаем от схемы, можно описать данный блок на System Verilog. Изначально на вход модуля принимаем сумму и входной перенос, в зависимости от того, есть ли он:
 
+```systemverilog
+module BCD_corrector(
+    input  logic [3:0] sum,         // Сумма
+    input  logic       carry_in,    // Входной перенос
 
+    output logic [3:0] sum_bcd,     // Сумма в BCD формате
+    output logic       carry_out    // Выходной перенос
+);
+```
 
+Вспомним, что конкретно мы ожидаем от модуля. В случае, если при сложении двух двоичных значений возникло "запрещённое значение" или же пришёл входной перенос, мы прибавляем 6 и выдаём выходной перенос:  
+
+```systemverilog
+if (carry_in || (sum > 4'b1001)) begin
+            carry_out = 1'b1;
+            sum_bcd   = sum + 4'd6;
+        end
+```
+
+Если же подобного не произошло, всё оставляем как есть  
+
+```systemverilog
+else begin
+            carry_out = 1'b0;
+            sum_bcd   = sum;
+        end
+```
+
+Тогда в результате, соединяя воедино всё то, о чём мы говорили ранее, мы получаем следующий модуль:
+
+```systemverilog
+module BCD_corrector(
+    input  logic [3:0] sum,         // Сумма
+    input  logic       carry_in,    // Входной перенос
+
+    output logic [3:0] sum_bcd,     // Сумма в BCD формате
+    output logic       carry_out    // Выходной перенос
+);
+
+    always_comb begin
+        if (carry_in || (sum > 4'b1001)) begin
+            carry_out = 1'b1;
+            sum_bcd   = sum + 4'd6;
+        end
+        else begin
+            carry_out = 1'b0;
+            sum_bcd   = sum;
+        end
+    end
+endmodule
+```
 
