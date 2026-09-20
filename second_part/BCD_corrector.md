@@ -71,7 +71,7 @@ $$
   <img width="431" height="160" alt="image" src="https://github.com/user-attachments/assets/dfb57302-93a2-4e7b-9b89-1ee32facc0c1" />
 </div>
 
-Вот теперь можно попробовать описать данный блок на System Verilog.
+Вот теперь можно описать данный блок на System Verilog.
 
 
 
