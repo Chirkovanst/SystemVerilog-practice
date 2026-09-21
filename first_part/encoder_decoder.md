@@ -55,97 +55,24 @@ One-Hot Encoding (Унарное кодирование) – это способ
 
  <p>У нас есть 16 различных чисел, которые нужно закодировать:</p>
  
-  <table>
-  <thead>
-    <tr>
-      <th align="center">Число</th>
-      <th align="center">Двоичное (Binary)</th>
-      <th align="center">One-Hot (16 бит)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="center"><b>0</b></td>
-      <td align="center"><code>0000</code></td>
-      <td align="center"><code>0000000000000001</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>1</b></td>
-      <td align="center"><code>0001</code></td>
-      <td align="center"><code>0000000000000010</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>2</b></td>
-      <td align="center"><code>0010</code></td>
-      <td align="center"><code>0000000000000100</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>3</b></td>
-      <td align="center"><code>0011</code></td>
-      <td align="center"><code>0000000000001000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>4</b></td>
-      <td align="center"><code>0100</code></td>
-      <td align="center"><code>0000000000010000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>5</b></td>
-      <td align="center"><code>0101</code></td>
-      <td align="center"><code>0000000000100000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>6</b></td>
-      <td align="center"><code>0110</code></td>
-      <td align="center"><code>0000000001000000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>7</b></td>
-      <td align="center"><code>0111</code></td>
-      <td align="center"><code>0000000010000000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>8</b></td>
-      <td align="center"><code>1000</code></td>
-      <td align="center"><code>0000000100000000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>9</b></td>
-      <td align="center"><code>1001</code></td>
-      <td align="center"><code>0000001000000000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>10</b></td>
-      <td align="center"><code>1010</code></td>
-      <td align="center"><code>0000010000000000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>11</b></td>
-      <td align="center"><code>1011</code></td>
-      <td align="center"><code>0000100000000000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>12</b></td>
-      <td align="center"><code>1100</code></td>
-      <td align="center"><code>0001000000000000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>13</b></td>
-      <td align="center"><code>1101</code></td>
-      <td align="center"><code>0010000000000000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>14</b></td>
-      <td align="center"><code>1110</code></td>
-      <td align="center"><code>0100000000000000</code></td>
-    </tr>
-    <tr>
-      <td align="center"><b>15</b></td>
-      <td align="center"><code>1111</code></td>
-      <td align="center"><code>1000000000000000</code></td>
-    </tr>
-  </tbody>
-</table>
+| Число | Двоичное | One-Hot (16 бит) |
+|:---:|:---:|:---:|
+| **0**  | `0000` | `0000000000000001` |
+| **1**  | `0001` | `0000000000000010` |
+| **2**  | `0010` | `0000000000000100` |
+| **3**  | `0011` | `0000000000001000` |
+| **4**  | `0100` | `0000000000010000` |
+| **5**  | `0101` | `0000000000100000` |
+| **6**  | `0110` | `0000000001000000` |
+| **7**  | `0111` | `0000000010000000` |
+| **8**  | `1000` | `0000000100000000` |
+| **9**  | `1001` | `0000001000000000` |
+| **10** | `1010` | `0000010000000000` |
+| **11** | `1011` | `0000100000000000` |
+| **12** | `1100` | `0001000000000000` |
+| **13** | `1101` | `0010000000000000` |
+| **14** | `1110` | `0100000000000000` |
+| **15** | `1111` | `1000000000000000` |
 
 Да, при программировании на C/C++, python подобный способ кодирования не применяется практически никогда, но, если мы работаем с ПЛИС, то его применение очень даже актуально. В ПЛИС, внутри платы, свитчи выглядят следующим образом:
 
