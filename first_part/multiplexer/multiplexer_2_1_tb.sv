@@ -83,15 +83,15 @@ initial begin
         end
     end
     if (count_ventili == 8)             
-        $display("The multiplexer_2_1_ventili PASS");
+        $display("multiplexer_2_1_ventili PASS");
     if (count_if_else == 8)             
-        $display("The multiplexer_2_1_if_else PASS");
+        $display("multiplexer_2_1_if_else PASS");
     if (count_case == 8)                
-        $display("The multiplexer_2_1_case PASS");
+        $display("multiplexer_2_1_case PASS");
     if (count_ternary_operator == 8)    
-        $display("The multiplexer_2_1_ternary_operator PASS");
+        $display("multiplexer_2_1_ternary_operator PASS");
     if (count_vector == 8)  
-        $display("The multiplexer_2_1_vector PASS");
+        $display("multiplexer_2_1_vector PASS");
 
 $finish;
 end
