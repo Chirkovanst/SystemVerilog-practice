@@ -1,7 +1,6 @@
 module multiplexer_2_1_tb;
 
 logic IN0, IN1, SEL;
-logic OUT;
 
 logic OUT_ventili;
 logic OUT_if_else;
@@ -65,19 +64,19 @@ initial begin
                 OUT_expected = (IN1 & SEL) | (IN0 & ~SEL);
 
                 if (OUT_expected == OUT_ventili) count_ventili++;
-                else $display("%b | %b | %b | %b | FAIL_ventili", SEL, IN0, IN1, OUT_ventili);
+                else $error("%b | %b | %b | %b | FAIL_ventili", SEL, IN0, IN1, OUT_ventili);
 
                 if (OUT_expected == OUT_if_else) count_if_else++;
-                else $display("%b | %b | %b | %b | FAIL_if_else", SEL, IN0, IN1, OUT_if_else);
+                else $error("%b | %b | %b | %b | FAIL_if_else", SEL, IN0, IN1, OUT_if_else);
 
                 if (OUT_expected == OUT_case) count_case++;
-                else $display("%b | %b | %b | %b | FAIL_case", SEL, IN0, IN1, OUT_case);
+                else $error("%b | %b | %b | %b | FAIL_case", SEL, IN0, IN1, OUT_case);
 
                 if (OUT_expected == OUT_ternary_operator) count_ternary_operator++;
-                else $display("%b | %b | %b | %b | FAIL_ternary_operator", SEL, IN0, IN1, OUT_ternary_operator);
+                else $error("%b | %b | %b | %b | FAIL_ternary_operator", SEL, IN0, IN1, OUT_ternary_operator);
 
                 if (OUT_expected == OUT_vector) count_vector++;
-                else $display("%b | %b | %b | %b | FAIL_vector", SEL, IN0, IN1, OUT_vector);
+                else $error("%b | %b | %b | %b | FAIL_vector", SEL, IN0, IN1, OUT_vector);
 
             end
         end
