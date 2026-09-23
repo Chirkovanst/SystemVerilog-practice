@@ -156,3 +156,10 @@ module multiplier_3x3(
 
 endmodule
 ```
+
+&ensp;
+
+<div align="center">
+  <img width="577" height="237" alt="image" src="https://github.com/user-attachments/assets/002420ea-a401-4e59-9639-341ad0d5cfec" />
+</div>
+
