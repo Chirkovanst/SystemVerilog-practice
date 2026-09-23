@@ -64,6 +64,7 @@
   <img width="232" height="268" alt="image" src="https://github.com/user-attachments/assets/ea32915c-e128-463c-b59c-10dadd55457f" />
 </div>
 
+Описывая схему на System Verilog рассуждаем аналогичным образом. Наша задача перемножить два двухбитных числа:
 
 
 
