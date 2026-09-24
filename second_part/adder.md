@@ -154,10 +154,42 @@ module full_adder(
 endmodule
 ```
 
+Вот сейчас Вы реализовали однобитный сумматор. Взяв 32 модуля однобитного сумматора и грамотно объединив их входы и выходы мы получим 32 битный сумматор. Шапка модуля такого сумматора будет следующей:
 
+```systemverilog
+module full_adder_32bit (
+    input  logic [31:0] A, B,
+    input  logic        Cin,
 
+    output logic        Cout,
+    output logic [31:0] S
+);
+```
 
+Собрав 32 экземпляра однобитных сумматоров в единый массив модулей, получим 32 битный сумматор:
 
+```systemverilog
+module full_adder_32bit (
+    input  logic [31:0] A, B,
+    input  logic        Cin,
 
+    output logic        Cout,
+    output logic [31:0] S
+);
 
+logic [32:0] carry;
+
+assign carry[0] = Cin;
+assign Cout     = carry[32];
+
+full_adder inst[31:0] (
+    .A    (A),
+    .B    (B),
+    .Cin  (carry[31:0]),
+    .S    (S),
+    .Cout (carry[32:1])
+);
+
+endmodule
+```
 
