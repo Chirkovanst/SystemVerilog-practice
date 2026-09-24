@@ -51,7 +51,7 @@ $$
 Тогда на System Verilog полусумматор можно описать следующим образом:
 
 ```systemverilog
-module Half_Adder(
+module half_adder(
     input  logic A,
     input  logic B,
     output logic S,
