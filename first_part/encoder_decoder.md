@@ -40,7 +40,7 @@ module encoder (
         16'b0010_0000_0000_0000: Y = 4'b1101;
         16'b0100_0000_0000_0000: Y = 4'b1110;
         16'b1000_0000_0000_0000: Y = 4'b1111;
-        default:                 Y = 4'bXXXX;
+        default:                 Y = 4'bxxxx;
 
         endcase
     end
