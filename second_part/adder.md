@@ -154,7 +154,7 @@ module full_adder(
 endmodule
 ```
 
-Вот сейчас Вы реализовали однобитный сумматор. Взяв 32 модуля однобитного сумматора и грамотно объединив их входы и выходы мы получим 32 битный сумматор. Шапка модуля такого сумматора будет следующей:
+Вот сейчас Вы реализовали однобитный сумматор. Взяв 8 модулей этой схемы и грамотно объединив их входы и выходы, передав перенос, мы получим 8 битный сумматор. Шапка модуля такого сумматора будет следующей:
 
 ```systemverilog
 module full_adder_32bit (
@@ -166,30 +166,77 @@ module full_adder_32bit (
 );
 ```
 
-Собрав 32 экземпляра однобитных сумматоров в единый массив модулей, получим 32 битный сумматор:
+Теперь необходимо создать массив модулей однобитного сумматора:
 
 ```systemverilog
-module full_adder_32bit (
-    input  logic [31:0] A, B,
+full_adder inst[7:0] (
+    .A    (A),
+    .B    (B),
+    .Cin  (carry[7:0]),
+    .S    (S),
+    .Cout (carry[8:1])
+);
+```
+
+Не забываем и о том, что у нашего сумматора есть цепочка переносов, то есть:
+
+<p align="center">
+  <img width="1085" height="141" alt="Сумматор_переносы drawio" src="https://github.com/user-attachments/assets/1ab3fdaf-a02c-4e6d-9137-706d5cdf56d1" />
+</p>
+
+Описывая этот момент на System Verilog, создаём дополнительную 8-ми битную шину проводов carry:
+
+```systemverilog
+logic [8:0] carry;
+```
+
+Тогда в качестве переноса первого (нулевого) сумматора будет Cin:
+
+```systemverilog
+assign carry[0] = Cin;
+```
+
+И на выход мы подадим перенос carry[8]:
+
+```systemverilog
+assign Cout     = carry[8];
+```
+
+В итоге получается:
+
+<p align="center">
+  <img width="1240" height="141" alt="Сумматор_переносы_carry drawio" src="https://github.com/user-attachments/assets/84bee739-dcf3-4136-bab7-407ace8d0134" />
+</p>
+
+Собрав 8 экземпляров однобитных сумматоров, в единый массив модулей и грамотно подключив сигналы, получим 8-ми битный сумматор:
+
+```systemverilog
+module full_adder_8bit (
+    input  logic [7:0] A, B,
     input  logic        Cin,
 
     output logic        Cout,
-    output logic [31:0] S
+    output logic [7:0] S
 );
 
-logic [32:0] carry;
+logic [8:0] carry;
 
 assign carry[0] = Cin;
-assign Cout     = carry[32];
+assign Cout     = carry[8];
 
-full_adder inst[31:0] (
+full_adder inst[7:0] (
     .A    (A),
     .B    (B),
-    .Cin  (carry[31:0]),
+    .Cin  (carry[7:0]),
     .S    (S),
-    .Cout (carry[32:1])
+    .Cout (carry[8:1])
 );
 
 endmodule
 ```
+
+<p align="center">
+  <img width="1275" height="925" alt="schematic_page-0001" src="https://github.com/user-attachments/assets/ee7e5643-9e75-4c5c-a29b-daa074821c79" />
+</p>
+
 
