@@ -157,12 +157,12 @@ endmodule
 Вот сейчас Вы реализовали однобитный сумматор. Взяв 8 модулей этой схемы и грамотно объединив их входы и выходы, передав перенос, мы получим 8 битный сумматор. Шапка модуля такого сумматора будет следующей:
 
 ```systemverilog
-module full_adder_32bit (
-    input  logic [31:0] A, B,
+module full_adder_8bit (
+    input  logic [7:0] A, B,
     input  logic        Cin,
 
     output logic        Cout,
-    output logic [31:0] S
+    output logic [7:0] S
 );
 ```
 
@@ -190,7 +190,7 @@ full_adder inst[7:0] (
 logic [8:0] carry;
 ```
 
-Тогда в качестве переноса первого (нулевого) сумматора будет Cin:
+Тогда в качестве переноса первого (нулевого) сумматора carry[0] будет Cin:
 
 ```systemverilog
 assign carry[0] = Cin;
