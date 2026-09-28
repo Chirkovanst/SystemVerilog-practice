@@ -321,15 +321,13 @@ full_adder_8bit inst_SUM2 (
 
 ```systemverilog
 full_adder_8bit inst_SUM3 (
-        .A    (SUM_2),
-        .B    (shift_P3),
-        .Cin  (1'b0),
+        .A    (),
+        .B    (),
+        .Cin  (),
         .Cout (),
-        .S    (P)
+        .S    ()
     );
 ```
-
-
 
 >[!NOTE]
 >  Задание:
