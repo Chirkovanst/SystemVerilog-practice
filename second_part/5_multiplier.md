@@ -182,9 +182,7 @@ endmodule
 
 Стоит отметить, что неполный сумматор мы можем использовать только в том случае, когда происходит сложение первого и второго разряда. Если бы мы реализовывали трех битный умножитель, то при сложении второго и третьего разрядов нужно было бы использовать полный сумматор.
 
->[!NOTE]
->  Задание:
->  Опишите на System Verilog четырёхбитный умножитель, используя 4 экземпляра двухбитного умножителя
+### Четырёхбитный умножитель
 
 Шапка модуля:
 
@@ -218,10 +216,10 @@ endmodule
 Тогда instP0 отвечает вот за это произведение:
 
 <div align="center">
-  <img width="662" height="232" alt="image" src="https://github.com/user-attachments/assets/44a8ac02-3bae-4724-88de-81eab968badc" />
+  <img width="670" height="196" alt="image" src="https://github.com/user-attachments/assets/dfb15a72-1864-4146-827a-e2926838883e" />
 </div>
 
-Тут нам в качестве операндов нужно передать два бита числа A[1:0] $A_{0} A_{1}$ два бита числа B[1:0] $B_{0} B_{1}$ и результат принять в качестве произведения P0
+Тут нам в качестве операндов нужно передать два бита числа A[1:0] $A_{0} A_{1}$ и два бита числа B[1:0] $B_{0} B_{1}$ и результат принять в качестве произведения P0
 
 ```systemverilog
  multiplier_2x2 inst_P0 (
@@ -231,15 +229,111 @@ endmodule
     );
 ```
 
-Далее сдвигаем получившиеся произведения. Подгоняем их под те сдвиги, которые мы имеем при умножении в столбик:
-
-В случае с произведением $A_{0} A_{1}$ и $B_{0} B_{1}$ нам сдвиг не нужен, в результате мы в любом случае получим четырёхбитное число:
+Далее сдвигаем получившееся произведения. Подгоняем их под те сдвиги, которые мы имеем при умножении в столбик.
 
 ```systemverilog
-assign PP0 = {4'b0000, P0};
+assign shift_P0 = {4'b0000, P0};
 ```
 
-P0 дополняем четырьмя битами, потому что в последствии мы отправим это число на сложение в четырёхбитный сумматор
+P0 дополняем четырьмя битами, потому что в последствии мы отправим это число на сложение в четырёхбитный сумматор. Тогда в случае с inst_P1, inst_P2, inst_P3, нам стоит действовать аналогично при заполнении входов и выходов инстанцированных блоков двухбитного умножителя:
+
+&ensp;
+
+<div align="center">
+  <img width="670" height="196" alt="image" src="https://github.com/user-attachments/assets/47ba5e3b-78f2-4a88-91e3-ec9b67017a48" />
+</div>
+
+&ensp;
+
+```systemverilog
+multiplier_2x2 inst_P1 (
+        .A(),
+        .B(),
+        .P()
+    );
+```
+
+&ensp;
+
+<div align="center">
+  <img width="670" height="196" alt="image" src="https://github.com/user-attachments/assets/4df5e613-e5f7-4a74-be7d-befa786e9b76" />
+</div>
+
+&ensp;
+
+```systemverilog
+multiplier_2x2 inst_P2 (
+        .A(),
+        .B(),
+        .P()
+    );
+```
+
+&ensp;
+
+<div align="center">
+  <img width="670" height="196" alt="image" src="https://github.com/user-attachments/assets/9ae459f8-d987-4e89-a5e5-9e6722bf8dea" />
+</div>
+
+&ensp;
+
+```systemverilog
+multiplier_2x2 inst_P3 (
+        .A(),
+        .B(),
+        .P()
+    );
+```
+
+А теперь все эти произведения суммируем:
+
+<div align="center">
+  <img width="670" height="196" alt="image" src="https://github.com/user-attachments/assets/20125a7d-5cbc-4da7-9e76-b5cfba177b37" />
+</div>
+
+```systemverilog
+full_adder_8bit inst_SUM1 (
+        .A    (shift_P0),
+        .B    (shift_P1),
+        .Cin  (1'b0),
+        .Cout (carry1),
+        .S    (SUM_1)
+    );
+```
+
+<div align="center">
+  <img width="670" height="196" alt="image" src="https://github.com/user-attachments/assets/a05c058e-8a80-48d6-b566-521e3702c59f" />
+</div>
+
+```systemverilog
+full_adder_8bit inst_SUM2 (
+        .A    (),
+        .B    (),
+        .Cin  (),
+        .Cout (),
+        .S    ()
+    );
+```
+
+<div align="center">
+  <img width="670" height="196" alt="image" src="https://github.com/user-attachments/assets/e76bfd3a-6c18-4ea4-925f-05c1d6cbf6ad" />
+</div>
+
+```systemverilog
+full_adder_8bit inst_SUM3 (
+        .A    (SUM_2),
+        .B    (shift_P3),
+        .Cin  (1'b0),
+        .Cout (),
+        .S    (P)
+    );
+```
+
+
+
+>[!NOTE]
+>  Задание:
+>  Заполните входы и выходы модулей inst_P1, inst_P2, inst_P3 и inst_SUM2, inst_SUM3
 
 
 
