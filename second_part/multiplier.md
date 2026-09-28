@@ -184,14 +184,14 @@ endmodule
 
 >[!NOTE]
 >  Задание:
->  Опишите на System Verilog трёхбитный умножитель
+>  Опишите на System Verilog четырёхбитный умножитель, используя 4 экземпляра двухбитного умножителя
 
 Шапка модуля:
 
 ```systemverilog
-module multiplier_3x3(
-    input  logic [2:0] A, B,
-    output logic [5:0] P
+module multiplier_4x4 (
+    input  logic [3:0] A, B,
+    output logic [7:0] P
 );
 
 endmodule
@@ -200,6 +200,49 @@ endmodule
 &ensp;
 
 <div align="center">
-  <img width="577" height="237" alt="image" src="https://github.com/user-attachments/assets/002420ea-a401-4e59-9639-341ad0d5cfec" />
+  <img width="666" height="223" alt="image" src="https://github.com/user-attachments/assets/5a29e3b7-1079-47b6-a2d4-6588ee6ba0ca" />
 </div>
+
+&ensp;
+
+Итого Вам нужно дополнить описание и получить в итоге вот такую вот схему:
+
+&ensp;
+
+<div align="center">
+
+</div>
+
+&ensp;
+
+Тогда instP0 отвечает вот за это произведение:
+
+<div align="center">
+  <img width="662" height="232" alt="image" src="https://github.com/user-attachments/assets/44a8ac02-3bae-4724-88de-81eab968badc" />
+</div>
+
+Тут нам в качестве операндов нужно передать два бита числа A[1:0] $A_{0} A_{1}$ два бита числа B[1:0] $B_{0} B_{1}$ и результат принять в качестве произведения P0
+
+```systemverilog
+ multiplier_2x2 inst_P0 (
+        .A (A[1:0]),
+        .B (B[1:0]),
+        .P (P0)
+    );
+```
+
+Далее сдвигаем получившиеся произведения. Подгоняем их под те сдвиги, которые мы имеем при умножении в столбик:
+
+В случае с произведением $A_{0} A_{1}$ и $B_{0} B_{1}$ нам сдвиг не нужен, в результате мы в любом случае получим четырёхбитное число:
+
+```systemverilog
+assign PP0 = {4'b0000, P0};
+```
+
+P0 дополняем четырьмя битами, потому что в последствии мы отправим это число на сложение в четырёхбитный сумматор
+
+
+
+
+
 
