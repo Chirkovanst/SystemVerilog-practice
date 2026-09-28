@@ -205,15 +205,15 @@ endmodule
 
 Итого Вам нужно дополнить описание и получить в итоге вот такую вот схему:
 
->[!NOTE]
->  Задание:
->  Заполните входы и выходы модулей inst_P1, inst_P2, inst_P3 и inst_SUM2, inst_SUM3
-
 &ensp;
 
 <div align="center">
   <img width="1537" height="521" alt="image" src="https://github.com/user-attachments/assets/83890a64-4bde-4bf5-a803-bd9bd40466d3" />
 </div>
+
+>[!NOTE]
+>  Задание:
+>  Заполните входы и выходы модулей inst_P1, inst_P2, inst_P3 и inst_SUM2, inst_SUM3
 
 &ensp;
 
