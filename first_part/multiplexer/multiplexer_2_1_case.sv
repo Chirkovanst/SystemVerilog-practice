@@ -10,7 +10,6 @@ module multiplexer_2_1_case (
         case(SEL)
         0:       OUT = IN0;
         1:       OUT = IN1;
-        default: OUT = 1'bx;
         endcase
     end
 
