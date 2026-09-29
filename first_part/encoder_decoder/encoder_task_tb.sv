@@ -17,8 +17,8 @@ initial begin
 
         #10;
             
-        if (Y != i) $error  ("FAIL: X = %b, expected = %0d, got = %0d", X, i, Y);
-        else        count++;
+        if (Y == i) count++;
+        else        $error  ("FAIL: X = %b, Y = %0d, must be Y = %0d", X, Y, i);
     end
 
     if (count == 16) $display("PASS");
