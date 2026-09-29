@@ -46,6 +46,7 @@ module adder_subtactor(
 
 <details>
   <summary> Вторая маленькая подсказка </summary>
+```systemverilog
 full_adder_8bit inst (
     .A    (),
     .B    (),
@@ -53,10 +54,12 @@ full_adder_8bit inst (
     .S    (),
     .Cout ()
 );
+```
 </details>
 
 <details>
   <summary> Третья маленькая подсказка </summary>
+```systemverilog
 full_adder_8bit inst (
     .A    (),
     .B    (проверяем сигнал sub, и в зависимости от него выдаём инвертированный или неинвертированный сигнал B),
@@ -64,4 +67,5 @@ full_adder_8bit inst (
     .S    (),
     .Cout ()
 );
+```
 </details>
