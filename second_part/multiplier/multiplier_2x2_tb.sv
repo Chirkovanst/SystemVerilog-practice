@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module multiplier_2x2_tb;
 
 logic [1:0] A, B;
@@ -19,7 +20,7 @@ initial begin
             #10;
 
             if (P == A*B) count++;
-            else $error ("FAIL: A = %b, B = %b, P = %b, reference = %b", A, B, P, A * B);
+            else $error ("FAIL: A = %b, B = %b, P = %b, must be = %b", A, B, P, A * B);
         end
     end
     if (count == 16) $display("PASS");
