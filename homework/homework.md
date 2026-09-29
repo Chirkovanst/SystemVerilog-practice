@@ -85,9 +85,73 @@ full_adder_8bit inst (
 
 >[!NOTE]
 >  Задание:
->  Мы описали целых три арифметических блока, на которых можно складывать, вычитать и умножать. Ваша задача реализовать упрощённое АЛУ. Операции АЛУ кодируются >следующим образом:
+>  Мы описали целых три арифметических блока, на которых можно складывать, вычитать и умножать. Ваша задача реализовать упрощённое четырёхбитное АЛУ. Операции АЛУ кодируются следующим образом:
 >
 > 00 - сложение  
 > 01 - вычитание  
 > 10 - умножение  
 
+Тогда шапка модуля такого АЛУ:
+
+```systemverilog
+module alu(
+    input  logic [3:0] A, B,
+    input  logic       opcode, // Помните у нас был сигнал SEL в мультиплексоре?)
+
+    output logic [7:0] result,
+);
+```
+
+Так как АЛУ у нас четырёхбитный, сумматор мы возьмём также четырёхбитный:
+
+```systemverilog
+module full_adder_4bit (
+    input  logic [3:0] A, B,
+    input  logic        Cin,
+
+    output logic        Cout,
+    output logic [3:0] S
+);
+
+logic [4:0] carry;
+
+assign carry[0] = Cin;
+assign Cout     = carry[4];
+
+full_adder inst[3:0] (
+    .A    (A),
+    .B    (B),
+    .Cin  (carry[3:0]),
+    .S    (S),
+    .Cout (carry[4:1])
+);
+
+endmodule
+```
+
+Теперь нам нужно инстанцировать в модуль нашего АЛУ, описанные ранее блоки:
+
+```systemverilog
+import alu_opcodes_pkg::*; // Импортируем параметры, которые содержат коды операций АЛУ
+
+    // Инстанцирцем описанные нами ранее модули
+
+    logic [3:0] add_sub_result;
+    logic       add_sub_Cout; 
+
+    logic [7:0] mul_result;
+
+    adder_subtactor inst_ADD_SUB (
+        .A    (A),
+        .B    (B),
+        .sub  (/*Какой тут должен быть сигнал? Все ли его биты нам нужны?*/),
+        .S    (add_sub_result),
+        .Cout (add_sub_Cout)
+    );
+
+    multiplier_4x4 inst_MUL (
+        .A    (A),
+        .B    (B),
+        .P    (mul_result)
+    );
+```
