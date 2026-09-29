@@ -16,9 +16,9 @@ Half_Adder inst(
 
 initial begin
     for (int i = 0; i < 2; i++) begin
-    A = i;
+        A = i;
         for (int j = 0; j < 2; j++) begin
-        B = j;
+            B = j;
 
         #10;
 
@@ -27,8 +27,7 @@ initial begin
                 "FAIL: A = %b B = %b | C = %b S = %b, must be = %b",
                 A, B, C, S, A + B
             );
-        else
-            count++;
+        else   count++;
     end
 end
     
