@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps 
 module decoder_task_tb;
 logic [3:0]  A;
 logic [15:0] Y;
@@ -15,8 +16,8 @@ initial begin
 
         #10;
 
-        if   (Y != (16'b1 << i)) $error("FAIL: A = %04b, Y = %016b, must be = %016b", A, Y, (16'b1 << i));
-        else                     count++;
+        if   (Y == (16'b1 << i)) count++;
+        else                     $error("FAIL: A = %04b, Y = %016b, must be Y = %016b", A, Y, (16'b1 << i));
     end
     if (count == 16) $display("PASS");
 
