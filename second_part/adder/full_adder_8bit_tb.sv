@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps 
 module full_adder_8bit_tb;
 
 logic [7:0] A, B;
@@ -35,7 +36,7 @@ task random_test();
         #1;
 
         if (reference === {Cout, S}) count++;
-        else $error("FAIL: A = 0x%08h, B = 0x%08h, Cin = %b | S = 0x%08h, Cout = %b | is expected S = 0x%09h", A, B, Cin, S, Cout, reference);
+        else $error("FAIL: A = 0x%08h, B = 0x%08h, Cin = %b | S = 0x%08h, Cout = %b | must be S = 0x%09h", A, B, Cin, S, Cout, reference);
     end
 endtask
 
