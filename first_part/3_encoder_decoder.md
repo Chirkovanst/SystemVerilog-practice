@@ -228,9 +228,9 @@ $$Y_3 = X_8 + X_9 + X_{10} + X_{11} + X_{12} + X_{13} + X_{14} + X_{15}$$
 Шапка модуля для выполнения задания:
 
 ```systemverilog
-module encoder (
-    input  logic [15:0] X,
-    output logic [3:0]  Y
+module encoder_task(
+    input  logic [15:0]  X,
+    output logic [3:0]   Y
 );
 
 endmodule
@@ -356,7 +356,7 @@ endmodule
 Шапка модуля для выполнения задания:
 
 ```systemverilog
-module decoder(
+module decoder_task(
     input  logic [3:0]  A,
     output logic [15:0] Y
 );
