@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps 
 module half_adder_tb;
 
 logic A;
@@ -16,18 +17,16 @@ Half_Adder inst(
 
 initial begin
     for (int i = 0; i < 2; i++) begin
-        A = i;
+    A = i;
         for (int j = 0; j < 2; j++) begin
-            B = j;
+        B = j;
 
         #10;
 
         if ({C, S} != A + B)
-            $error(
-                "FAIL: A = %b B = %b | C = %b S = %b, must be = %b",
-                A, B, C, S, A + B
-            );
-        else   count++;
+            $error("FAIL: A = %b B = %b | C = %b S = %b, must be = %b",
+                A, B, C, S, A + B);
+        else    count++;
     end
 end
     
