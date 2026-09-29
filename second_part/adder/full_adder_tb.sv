@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps 
 module full_adder_tb;
 
 logic A, B;
@@ -37,7 +38,7 @@ for (int i = 0; i < 2; i++) begin
             #1;
 
             if (reference === {Cout, S}) count++;
-            else $error("FAIL: A = %b, B = %b, Cin = %b | S = %b, Cout = %b | reference = %b",
+            else $error("FAIL: A = %b, B = %b, Cin = %b | S = %b, Cout = %b | must be = %b",
                            A, B, Cin, S, Cout, reference);
         end
     end
