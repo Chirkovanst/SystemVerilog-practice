@@ -45,7 +45,8 @@ module adder_subtactor(
 </details>
 
 <details>
-  <summary> Вторая маленькая подсказка </summary>
+  <summary> Вторая маленькая подсказка </summary>  
+  
 ```systemverilog
 full_adder_8bit inst (
     .A    (),
@@ -55,10 +56,12 @@ full_adder_8bit inst (
     .Cout ()
 );
 ```
+
 </details>
 
 <details>
-  <summary> Третья маленькая подсказка </summary>
+  <summary> Третья маленькая подсказка </summary>  
+  
 ```systemverilog
 full_adder_8bit inst (
     .A    (),
@@ -68,4 +71,5 @@ full_adder_8bit inst (
     .Cout ()
 );
 ```
+
 </details>
