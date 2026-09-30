@@ -17,7 +17,7 @@ $$B = 0101_2 \implies \sim B = 1010_2$$
   <img width="421" height="106" alt="image" src="https://github.com/user-attachments/assets/3544f175-15c6-415e-8e76-c62019a242f2" />
 </p>
 
-Далее складываем A и B:
+Далее складываем A с полученным дополнительным кодом числа B:
 
 <p align="center">
   <img width="457" height="100" alt="image" src="https://github.com/user-attachments/assets/530c1af9-0b49-48dd-a080-0d2636f2eb6e" />
@@ -41,7 +41,7 @@ module adder_subtactor(
 
 <details>
   <summary> Первая маленькая подсказка </summary>
-  Для выполнения данного задания Вам нужно инстанцировать модуль adder_subtactor и грамотно подключить и преобразовать его сигналы
+  Для выполнения данного задания Вам нужно инстанцировать модуль full_adder_8bit и грамотно подключить и преобразовать его сигналы
 </details>
 
 <details>
@@ -96,7 +96,7 @@ full_adder_8bit inst (
 ```systemverilog
 module alu(
     input  logic [3:0] A, B,
-    input  logic       opcode, // Помните у нас был сигнал SEL в мультиплексоре?)
+    input  logic [1:0] opcode, // Помните у нас был сигнал SEL в мультиплексоре?)
 
     output logic [7:0] result,
 );
@@ -107,9 +107,9 @@ module alu(
 ```systemverilog
 module full_adder_4bit (
     input  logic [3:0] A, B,
-    input  logic        Cin,
+    input  logic       Cin,
 
-    output logic        Cout,
+    output logic       Cout,
     output logic [3:0] S
 );
 
