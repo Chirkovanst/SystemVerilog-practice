@@ -132,7 +132,18 @@ endmodule
 Теперь нам нужно инстанцировать в модуль нашего АЛУ, описанные ранее блоки:
 
 ```systemverilog
-import alu_opcodes_pkg::*; // Импортируем параметры, которые содержат коды операций АЛУ
+module alu(
+    input  logic [3:0] A, B,
+    input  logic [1:0] opcode, // Помните у нас был сигнал SEL в мультиплексоре?)
+
+    output logic [7:0] result
+);
+
+    import alu_opcodes_pkg::*; // Импортируем параметры, которые содержат коды операций АЛУ
+
+    // ALU_ADD = 2'b00; 
+    // ALU_SUB = 2'b01;
+    // ALU_MUL = 2'b10;
 
     // Инстанцирцем описанные нами ранее модули
 
@@ -144,7 +155,7 @@ import alu_opcodes_pkg::*; // Импортируем параметры, кот�
     adder_subtactor inst_ADD_SUB (
         .A    (A),
         .B    (B),
-        .sub  (/*Какой тут должен быть сигнал? Все ли его биты нам нужны?*/),
+        .sub  (/* Какой тут должен быть сигнал? Все ли его биты нам нужны?*/),
         .S    (add_sub_result),
         .Cout (add_sub_Cout)
     );
@@ -154,4 +165,6 @@ import alu_opcodes_pkg::*; // Импортируем параметры, кот�
         .B    (B),
         .P    (mul_result)
     );
+    
+endmodule
 ```
