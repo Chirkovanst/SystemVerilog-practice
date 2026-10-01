@@ -145,7 +145,7 @@ module alu(
     // ALU_SUB = 2'b01;
     // ALU_MUL = 2'b10;
 
-    // Инстанцирцем описанные нами ранее модули
+    // Инстанцируем описанные нами ранее модули
 
     logic [3:0] add_sub_result;
     logic       add_sub_Cout; 
