@@ -1,6 +1,6 @@
-module encoder_case (
-    input  logic [15:0] X, // Унарный код. Активен ровно один бит, соответствующий нажатому свитчу
-    output logic [3:0]  Y  // Двоичный код номера активного входа
+module encoder (
+    input  logic [15:0] X,
+    output logic [3:0]  Y
 );
 
     always_comb begin
