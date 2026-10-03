@@ -6,7 +6,7 @@ logic [3:0]  Y;
 
 logic [4:0]  count = 0;
 
-encoder_case inst(
+encoder inst(
     .X (X),
     .Y (Y)
 );
