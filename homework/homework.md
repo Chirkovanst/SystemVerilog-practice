@@ -31,24 +31,24 @@ $$B = 0101_2 \implies \sim B = 1010_2$$
 
 ```systemverilog
 module adder_subtactor(
-    input  logic [7:0] A, B,
+    input  logic [3:0] A, B,
     input  logic       sub,
 
-    output logic [7:0] S,
+    output logic [3:0] S,
     output logic       Cout
 );
 ```
 
 <details>
   <summary> Первая маленькая подсказка </summary>
-  Для выполнения данного задания Вам нужно инстанцировать модуль full_adder_8bit и грамотно подключить и преобразовать его сигналы
+  Для выполнения данного задания Вам нужно инстанцировать модуль full_adder_4bit и грамотно подключить и преобразовать его сигналы
 </details>
 
 <details>
   <summary> Вторая маленькая подсказка </summary>  
   
 ```systemverilog
-full_adder_8bit inst (
+full_adder_4bit inst (
     .A    (),
     .B    (),
     .Cin  (),
@@ -63,7 +63,7 @@ full_adder_8bit inst (
   <summary> Третья маленькая подсказка </summary>  
   
 ```systemverilog
-full_adder_8bit inst (
+full_adder_4bit inst (
     .A    (),
     .B    (проверяем сигнал sub, и в зависимости от него выдаём инвертированный или неинвертированный сигнал B),
     .Cin  (проверяем сигнал sub, и в зависимости от него выдаём 1 или 0),
