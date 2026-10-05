@@ -4,7 +4,7 @@ set -Eeuo pipefail
 tb_files=( *_tb.sv )
 
 if [ ${#tb_files[@]} -eq 0 ]; then
-    echo "Ошибка: В текущей папке не найдено файлов *_tb.sv" >&2
+    echo "В текущей папке не найдено файлов *_tb.sv" >&2
     exit 1
 fi
 
@@ -23,7 +23,3 @@ module_name="${selected_tb%.sv}"
 iverilog -g2012 -o "${module_name}.vvp" *.sv
 
 vvp "${module_name}.vvp"
-
-if [ -f "dump.vcd" ]; then
-    gtkwave dump.vcd &
-fi
