@@ -163,14 +163,14 @@ assign A1B1 = A[1] & B[1];
 
 assign P[0] = A0B0;
 
-Half_Adder inst_P1(
+half_Adder inst_P1(
     .A(A0B1),
     .B(A1B0),
     .S(P[1]),
     .C(carry)
 );
 
-Half_Adder inst_P2_P3(
+half_Adder inst_P2_P3(
     .A(A1B1),
     .B(carry),
     .S(P[2]),
