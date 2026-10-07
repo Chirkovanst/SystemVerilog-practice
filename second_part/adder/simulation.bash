@@ -1,25 +1,40 @@
 #!/usr/bin/env bash
+
 set -Eeuo pipefail
 
 tb_files=( *_tb.sv )
 
 if [ ${#tb_files[@]} -eq 0 ]; then
-    echo "В текущей папке не найдено файлов *_tb.sv" >&2
+    printf '%s: cannot find any "*_tb.sv" files\n' "$(basename "$0")" 1>&2
     exit 1
 fi
 
 if [ ${#tb_files[@]} -eq 1 ]; then
-    selected_tb="${tb_files[0]}"
+    tb_file=${tb_files[0]}
 else
-    echo "Выберите тестбенч для запуска:"
-    select selected_tb in "${tb_files[@]}"; do
-        [ -n "$selected_tb" ] && break
+    echo "Select a testbench to run:"
+
+    select tb_file in "${tb_files[@]}"
+    do
+        [ -n "$tb_file" ] && break
     done
 fi
 
-echo "Запуск симуляции: $selected_tb"
+echo "Running simulation: $tb_file"
 
-module_name="${selected_tb%.sv}"
-iverilog -g2012 -o "${module_name}.vvp" *.sv
+module_name=${tb_file%.sv}
 
-vvp "${module_name}.vvp"
+sources=()
+
+for source in *.sv
+do
+    [[ "$source" == *_tb.sv ]] && continue
+    sources+=( "$source" )
+done
+
+iverilog -g2012 \
+    -s "$module_name" \
+    -o "$module_name.vvp" \
+    "$tb_file" "${sources[@]}"
+
+vvp "$module_name.vvp"
