@@ -45,4 +45,4 @@
   <img width="1135" height="556" alt="image" src="https://github.com/user-attachments/assets/0e9b7e7b-b7a0-447c-832d-3c6f7156e3fe" />
 </p>
 
-[Шифраторы и дешифраторы](3_encoder_decoder.md)
+[Шифратор](3_encoder.md)
