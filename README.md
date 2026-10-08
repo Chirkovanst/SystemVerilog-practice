@@ -16,7 +16,7 @@
 Впоследствии нужно открыть консоль, powershell или git bash, перейти в папку, в которую Вы хотите сохранить данные репозитория, и ввести команду:
 
 ```powershell
-git clone [<ссылка на репозиторий>](https://github.com/Chirkovanst/SystemVerilog-practice.git)
+git clone https://github.com/Chirkovanst/SystemVerilog-practice.git
 ```
 
 Подождать пока репозиторий клонируется иии... Вы готовы к семинару) 
