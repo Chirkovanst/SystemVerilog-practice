@@ -237,4 +237,4 @@ endmodule
   <img width="1275" height="925" alt="schematic_page-0001" src="https://github.com/user-attachments/assets/ee7e5643-9e75-4c5c-a29b-daa074821c79" />
 </p>
 
-[Практическое задание](../3_homework/homework.md)
+[Практическое задание](../2_homework/homework.md)
