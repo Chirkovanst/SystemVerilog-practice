@@ -368,7 +368,7 @@ endmodule
 
 >[!NOTE]
 >  Задание:
->  Заполните входы и выходы модулей inst_P1, inst_P2, inst_P3 и inst_SUM2, inst_SUM3
+>  Заполните входы и выходы инстанцированного модуля multiplier_2x2 inst_P1, inst_P2, inst_P3 и inst_SUM2, inst_SUM3
 
 &ensp;
 
