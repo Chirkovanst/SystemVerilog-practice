@@ -31,7 +31,8 @@ git clone https://github.com/Chirkovanst/SystemVerilog-practice.git
 
 Вроде бы всё, приятного просмотра!) 
 
-[Мультиплексор](1_multiplexer.md)
+[Мультиплексор](1_first_part/1_multiplexer.md)
+
 
 
 
