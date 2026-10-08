@@ -52,7 +52,7 @@ initial begin
                         | (IN2 &  SEL[1] & ~SEL[0])
                         | (IN3 &  SEL[1] &  SEL[0]);
 
-                        if (OUT != OUT_expected) $error("SEL = %b | IN0 = %b | IN1 = %b | IN2 = %b | IN3 = %b | OUT = %b | EXPECTED = %b", 
+                        if (OUT !== OUT_expected) $error("SEL = %b | IN0 = %b | IN1 = %b | IN2 = %b | IN3 = %b | OUT = %b | EXPECTED = %b", 
                                                          SEL, IN0, IN1, IN2, IN3, OUT, OUT_expected);
 
                         else count++;
@@ -69,11 +69,12 @@ initial begin
 
     if (count == 68) $display ("PASS");
 
-$finish;
+    $finish;
 end
 
 initial begin
     $dumpfile("multiplexer_4_1_timing_diagram.vcd");
     $dumpvars(0, multiplexer_4_1_tb);
 end
+
 endmodule

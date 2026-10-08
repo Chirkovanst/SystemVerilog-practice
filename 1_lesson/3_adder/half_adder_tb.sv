@@ -8,7 +8,7 @@ logic C;
 
 logic [2:0] count = 0;
 
-Half_Adder inst(
+half_adder inst(
     .A(A),
     .B(B),
     .S(S),
